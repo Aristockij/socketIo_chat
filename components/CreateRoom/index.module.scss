@@ -1,0 +1,12 @@
+.rooms {
+  &__list {
+    margin-bottom: 20px;
+  }
+  &__form {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
