@@ -3,9 +3,9 @@
 import { useState, useEffect } from "react";
 import { socket } from "@/components/socket";
 import { useRouter } from "next/navigation";
-import { Room } from "@/types/roomType";
+import { RoomType } from "@/types/roomType";
 
-const Index = ({ el }: { el: Room }) => {
+const Index = ({ el }: { el: RoomType }) => {
   const [isOpenPopup, setOpenPopup] = useState(false);
   const [password, setPassword] = useState("");
   const [countUsers, setCountUsers] = useState(0);
@@ -59,7 +59,7 @@ const Index = ({ el }: { el: Room }) => {
           className='form'
           onSubmit={(e) => {
             e.preventDefault();
-            joinRoom(el.idRoom, password);
+            if (el.idRoom) joinRoom(el.idRoom, password);
           }}
         >
           <input

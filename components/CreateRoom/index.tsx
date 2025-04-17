@@ -3,18 +3,18 @@
 import { useEffect, useState } from "react";
 import { socket } from "@/components/socket";
 import RoomEl from "@/components/RoomEl";
-import { Room } from "@/types/roomType";
+import { RoomType } from "@/types/roomType";
 import { useRouter } from "next/navigation";
 import s from "./index.module.scss";
 const Index = () => {
   const [roomName, setRoomName] = useState("");
   const [roomPass, setRoomPass] = useState("");
-  const [rooms, setRooms] = useState<Room[]>([]);
+  const [rooms, setRooms] = useState<RoomType[]>([]);
 
   const router = useRouter();
 
   useEffect(() => {
-    const handleUpdateRoom = (newRooms: Room[]) => {
+    const handleUpdateRoom = (newRooms: RoomType[]) => {
       setRooms(newRooms);
     };
     socket.on("update-room", handleUpdateRoom);
